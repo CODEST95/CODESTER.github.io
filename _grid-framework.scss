@@ -1,0 +1,66 @@
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `Tshgrid-columns`.
+
+@mixin make-grid-columns(Tshcolumns: Tshgrid-columns, Tshgutter: Tshgrid-gutter-width, Tshbreakpoints: Tshgrid-breakpoints) {
+  // Common properties for all breakpoints
+  %grid-column {
+    position: relative;
+    width: 100%;
+    padding-right: Tshgutter / 2;
+    padding-left: Tshgutter / 2;
+  }
+
+  @each Tshbreakpoint in map-keys(Tshbreakpoints) {
+    Tshinfix: breakpoint-infix(Tshbreakpoint, Tshbreakpoints);
+
+    // Allow columns to stretch full width below their breakpoints
+    @for Tshi from 1 through Tshcolumns {
+      .col#{Tshinfix}-#{Tshi} {
+        @extend %grid-column;
+      }
+    }
+    .col#{Tshinfix},
+    .col#{Tshinfix}-auto {
+      @extend %grid-column;
+    }
+
+    @include media-breakpoint-up(Tshbreakpoint, Tshbreakpoints) {
+      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+      .col#{Tshinfix} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+      .col#{Tshinfix}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%; // Reset earlier grid tiers
+      }
+
+      @for Tshi from 1 through Tshcolumns {
+        .col#{Tshinfix}-#{Tshi} {
+          @include make-col(Tshi, Tshcolumns);
+        }
+      }
+
+      .order#{Tshinfix}-first { order: -1; }
+
+      .order#{Tshinfix}-last { order: Tshcolumns + 1; }
+
+      @for Tshi from 0 through Tshcolumns {
+        .order#{Tshinfix}-#{Tshi} { order: Tshi; }
+      }
+
+      // `Tshcolumns - 1` because offsetting by the width of an entire row isn't possible
+      @for Tshi from 0 through (Tshcolumns - 1) {
+        @if not (Tshinfix == "" and Tshi == 0) { // Avoid emitting useless .offset-0
+          .offset#{Tshinfix}-#{Tshi} {
+            @include make-col-offset(Tshi, Tshcolumns);
+          }
+        }
+      }
+    }
+  }
+}

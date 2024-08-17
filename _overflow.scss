@@ -1,0 +1,5 @@
+// stylelint-disable declaration-no-important
+
+@each Tshvalue in Tshoverflows {
+  .overflow-#{Tshvalue} { overflow: Tshvalue !important; }
+}

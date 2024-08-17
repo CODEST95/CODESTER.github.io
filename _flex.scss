@@ -1,0 +1,51 @@
+// stylelint-disable declaration-no-important
+
+// Flex variation
+//
+// Custom styles for additional flex alignment options.
+
+@each Tshbreakpoint in map-keys(Tshgrid-breakpoints) {
+  @include media-breakpoint-up(Tshbreakpoint) {
+    Tshinfix: breakpoint-infix(Tshbreakpoint, Tshgrid-breakpoints);
+
+    .flex#{Tshinfix}-row            { flex-direction: row !important; }
+    .flex#{Tshinfix}-column         { flex-direction: column !important; }
+    .flex#{Tshinfix}-row-reverse    { flex-direction: row-reverse !important; }
+    .flex#{Tshinfix}-column-reverse { flex-direction: column-reverse !important; }
+
+    .flex#{Tshinfix}-wrap         { flex-wrap: wrap !important; }
+    .flex#{Tshinfix}-nowrap       { flex-wrap: nowrap !important; }
+    .flex#{Tshinfix}-wrap-reverse { flex-wrap: wrap-reverse !important; }
+    .flex#{Tshinfix}-fill         { flex: 1 1 auto !important; }
+    .flex#{Tshinfix}-grow-0       { flex-grow: 0 !important; }
+    .flex#{Tshinfix}-grow-1       { flex-grow: 1 !important; }
+    .flex#{Tshinfix}-shrink-0     { flex-shrink: 0 !important; }
+    .flex#{Tshinfix}-shrink-1     { flex-shrink: 1 !important; }
+
+    .justify-content#{Tshinfix}-start   { justify-content: flex-start !important; }
+    .justify-content#{Tshinfix}-end     { justify-content: flex-end !important; }
+    .justify-content#{Tshinfix}-center  { justify-content: center !important; }
+    .justify-content#{Tshinfix}-between { justify-content: space-between !important; }
+    .justify-content#{Tshinfix}-around  { justify-content: space-around !important; }
+
+    .align-items#{Tshinfix}-start    { align-items: flex-start !important; }
+    .align-items#{Tshinfix}-end      { align-items: flex-end !important; }
+    .align-items#{Tshinfix}-center   { align-items: center !important; }
+    .align-items#{Tshinfix}-baseline { align-items: baseline !important; }
+    .align-items#{Tshinfix}-stretch  { align-items: stretch !important; }
+
+    .align-content#{Tshinfix}-start   { align-content: flex-start !important; }
+    .align-content#{Tshinfix}-end     { align-content: flex-end !important; }
+    .align-content#{Tshinfix}-center  { align-content: center !important; }
+    .align-content#{Tshinfix}-between { align-content: space-between !important; }
+    .align-content#{Tshinfix}-around  { align-content: space-around !important; }
+    .align-content#{Tshinfix}-stretch { align-content: stretch !important; }
+
+    .align-self#{Tshinfix}-auto     { align-self: auto !important; }
+    .align-self#{Tshinfix}-start    { align-self: flex-start !important; }
+    .align-self#{Tshinfix}-end      { align-self: flex-end !important; }
+    .align-self#{Tshinfix}-center   { align-self: center !important; }
+    .align-self#{Tshinfix}-baseline { align-self: baseline !important; }
+    .align-self#{Tshinfix}-stretch  { align-self: stretch !important; }
+  }
+}

@@ -1,0 +1,125 @@
+// stylelint-disable declaration-no-important, selector-list-comma-newline-after
+
+//
+// Headings
+//
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: Tshheadings-margin-bottom;
+  font-family: Tshheadings-font-family;
+  font-weight: Tshheadings-font-weight;
+  line-height: Tshheadings-line-height;
+  color: Tshheadings-color;
+}
+
+h1, .h1 { @include font-size(Tshh1-font-size); }
+h2, .h2 { @include font-size(Tshh2-font-size); }
+h3, .h3 { @include font-size(Tshh3-font-size); }
+h4, .h4 { @include font-size(Tshh4-font-size); }
+h5, .h5 { @include font-size(Tshh5-font-size); }
+h6, .h6 { @include font-size(Tshh6-font-size); }
+
+.lead {
+  @include font-size(Tshlead-font-size);
+  font-weight: Tshlead-font-weight;
+}
+
+// Type display classes
+.display-1 {
+  @include font-size(Tshdisplay1-size);
+  font-weight: Tshdisplay1-weight;
+  line-height: Tshdisplay-line-height;
+}
+.display-2 {
+  @include font-size(Tshdisplay2-size);
+  font-weight: Tshdisplay2-weight;
+  line-height: Tshdisplay-line-height;
+}
+.display-3 {
+  @include font-size(Tshdisplay3-size);
+  font-weight: Tshdisplay3-weight;
+  line-height: Tshdisplay-line-height;
+}
+.display-4 {
+  @include font-size(Tshdisplay4-size);
+  font-weight: Tshdisplay4-weight;
+  line-height: Tshdisplay-line-height;
+}
+
+
+//
+// Horizontal rules
+//
+
+hr {
+  margin-top: Tshhr-margin-y;
+  margin-bottom: Tshhr-margin-y;
+  border: 0;
+  border-top: Tshhr-border-width solid Tshhr-border-color;
+}
+
+
+//
+// Emphasis
+//
+
+small,
+.small {
+  @include font-size(Tshsmall-font-size);
+  font-weight: Tshfont-weight-normal;
+}
+
+mark,
+.mark {
+  padding: Tshmark-padding;
+  background-color: Tshmark-bg;
+}
+
+
+//
+// Lists
+//
+
+.list-unstyled {
+  @include list-unstyled;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  @include list-unstyled;
+}
+.list-inline-item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: Tshlist-inline-padding;
+  }
+}
+
+
+//
+// Misc
+//
+
+// Builds on `abbr`
+.initialism {
+  @include font-size(90%);
+  text-transform: uppercase;
+}
+
+// Blockquotes
+.blockquote {
+  margin-bottom: Tshspacer;
+  @include font-size(Tshblockquote-font-size);
+}
+
+.blockquote-footer {
+  display: block;
+  @include font-size(Tshblockquote-small-font-size);
+  color: Tshblockquote-small-color;
+
+  &::before {
+    content: "\2014\00A0"; // em dash, nbsp
+  }
+}

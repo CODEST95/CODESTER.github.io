@@ -1,0 +1,192 @@
+// Form control focus state
+//
+// Generate a customized focus state and for any input with the specified color,
+// which defaults to the `Tshinput-focus-border-color` variable.
+//
+// We highly encourage you to not customize the default value, but instead use
+// this to tweak colors on an as-needed basis. This aesthetic change is based on
+// WebKit's default styles, but applicable to a wider range of browsers. Its
+// usability and accessibility should be taken into account with any change.
+//
+// Example usage: change the default blue border and shadow to white for better
+// contrast against a dark gray background.
+@mixin form-control-focus() {
+  &:focus {
+    color: Tshinput-focus-color;
+    background-color: Tshinput-focus-bg;
+    border-color: Tshinput-focus-border-color;
+    outline: 0;
+    // Avoid using mixin so we can pass custom focus shadow properly
+    @if Tshenable-shadows {
+      box-shadow: Tshinput-box-shadow, Tshinput-focus-box-shadow;
+    } @else {
+      box-shadow: Tshinput-focus-box-shadow;
+    }
+  }
+}
+
+
+@mixin form-validation-state(Tshstate, Tshcolor, Tshicon) {
+  .#{Tshstate}-feedback {
+    display: none;
+    width: 100%;
+    margin-top: Tshform-feedback-margin-top;
+    @include font-size(Tshform-feedback-font-size);
+    color: Tshcolor;
+  }
+
+  .#{Tshstate}-tooltip {
+    position: absolute;
+    top: 100%;
+    z-index: 5;
+    display: none;
+    max-width: 100%; // Contain to parent when possible
+    padding: Tshform-feedback-tooltip-padding-y Tshform-feedback-tooltip-padding-x;
+    margin-top: .1rem;
+    @include font-size(Tshform-feedback-tooltip-font-size);
+    line-height: Tshform-feedback-tooltip-line-height;
+    color: color-yiq(Tshcolor);
+    background-color: rgba(Tshcolor, Tshform-feedback-tooltip-opacity);
+    @include border-radius(Tshform-feedback-tooltip-border-radius);
+  }
+
+  .form-control {
+    .was-validated &:#{Tshstate},
+    &.is-#{Tshstate} {
+      border-color: Tshcolor;
+
+      @if Tshenable-validation-icons {
+        padding-right: Tshinput-height-inner;
+        background-image: Tshicon;
+        background-repeat: no-repeat;
+        background-position: center right Tshinput-height-inner-quarter;
+        background-size: Tshinput-height-inner-half Tshinput-height-inner-half;
+      }
+
+      &:focus {
+        border-color: Tshcolor;
+        box-shadow: 0 0 0 Tshinput-focus-width rgba(Tshcolor, .25);
+      }
+
+      ~ .#{Tshstate}-feedback,
+      ~ .#{Tshstate}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+  // stylelint-disable-next-line selector-no-qualifying-type
+  textarea.form-control {
+    .was-validated &:#{Tshstate},
+    &.is-#{Tshstate} {
+      @if Tshenable-validation-icons {
+        padding-right: Tshinput-height-inner;
+        background-position: top Tshinput-height-inner-quarter right Tshinput-height-inner-quarter;
+      }
+    }
+  }
+
+  .custom-select {
+    .was-validated &:#{Tshstate},
+    &.is-#{Tshstate} {
+      border-color: Tshcolor;
+
+      @if Tshenable-validation-icons {
+        padding-right: Tshcustom-select-feedback-icon-padding-right;
+        background: Tshcustom-select-background, Tshicon Tshcustom-select-bg no-repeat Tshcustom-select-feedback-icon-position / Tshcustom-select-feedback-icon-size;
+      }
+
+      &:focus {
+        border-color: Tshcolor;
+        box-shadow: 0 0 0 Tshinput-focus-width rgba(Tshcolor, .25);
+      }
+
+      ~ .#{Tshstate}-feedback,
+      ~ .#{Tshstate}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+
+  .form-control-file {
+    .was-validated &:#{Tshstate},
+    &.is-#{Tshstate} {
+      ~ .#{Tshstate}-feedback,
+      ~ .#{Tshstate}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+  .form-check-input {
+    .was-validated &:#{Tshstate},
+    &.is-#{Tshstate} {
+      ~ .form-check-label {
+        color: Tshcolor;
+      }
+
+      ~ .#{Tshstate}-feedback,
+      ~ .#{Tshstate}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+  .custom-control-input {
+    .was-validated &:#{Tshstate},
+    &.is-#{Tshstate} {
+      ~ .custom-control-label {
+        color: Tshcolor;
+
+        &::before {
+          border-color: Tshcolor;
+        }
+      }
+
+      ~ .#{Tshstate}-feedback,
+      ~ .#{Tshstate}-tooltip {
+        display: block;
+      }
+
+      &:checked {
+        ~ .custom-control-label::before {
+          border-color: lighten(Tshcolor, 10%);
+          @include gradient-bg(lighten(Tshcolor, 10%));
+        }
+      }
+
+      &:focus {
+        ~ .custom-control-label::before {
+          box-shadow: 0 0 0 Tshinput-focus-width rgba(Tshcolor, .25);
+        }
+
+        &:not(:checked) ~ .custom-control-label::before {
+          border-color: Tshcolor;
+        }
+      }
+    }
+  }
+
+  // custom file
+  .custom-file-input {
+    .was-validated &:#{Tshstate},
+    &.is-#{Tshstate} {
+      ~ .custom-file-label {
+        border-color: Tshcolor;
+      }
+
+      ~ .#{Tshstate}-feedback,
+      ~ .#{Tshstate}-tooltip {
+        display: block;
+      }
+
+      &:focus {
+        ~ .custom-file-label {
+          border-color: Tshcolor;
+          box-shadow: 0 0 0 Tshinput-focus-width rgba(Tshcolor, .25);
+        }
+      }
+    }
+  }
+}

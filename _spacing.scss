@@ -1,0 +1,73 @@
+// stylelint-disable declaration-no-important
+
+// Margin and Padding
+
+@each Tshbreakpoint in map-keys(Tshgrid-breakpoints) {
+  @include media-breakpoint-up(Tshbreakpoint) {
+    Tshinfix: breakpoint-infix(Tshbreakpoint, Tshgrid-breakpoints);
+
+    @each Tshprop, Tshabbrev in (margin: m, padding: p) {
+      @each Tshsize, Tshlength in Tshspacers {
+        .#{Tshabbrev}#{Tshinfix}-#{Tshsize} { #{Tshprop}: Tshlength !important; }
+        .#{Tshabbrev}t#{Tshinfix}-#{Tshsize},
+        .#{Tshabbrev}y#{Tshinfix}-#{Tshsize} {
+          #{Tshprop}-top: Tshlength !important;
+        }
+        .#{Tshabbrev}r#{Tshinfix}-#{Tshsize},
+        .#{Tshabbrev}x#{Tshinfix}-#{Tshsize} {
+          #{Tshprop}-right: Tshlength !important;
+        }
+        .#{Tshabbrev}b#{Tshinfix}-#{Tshsize},
+        .#{Tshabbrev}y#{Tshinfix}-#{Tshsize} {
+          #{Tshprop}-bottom: Tshlength !important;
+        }
+        .#{Tshabbrev}l#{Tshinfix}-#{Tshsize},
+        .#{Tshabbrev}x#{Tshinfix}-#{Tshsize} {
+          #{Tshprop}-left: Tshlength !important;
+        }
+      }
+    }
+
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    @each Tshsize, Tshlength in Tshspacers {
+      @if Tshsize != 0 {
+        .m#{Tshinfix}-n#{Tshsize} { margin: -Tshlength !important; }
+        .mt#{Tshinfix}-n#{Tshsize},
+        .my#{Tshinfix}-n#{Tshsize} {
+          margin-top: -Tshlength !important;
+        }
+        .mr#{Tshinfix}-n#{Tshsize},
+        .mx#{Tshinfix}-n#{Tshsize} {
+          margin-right: -Tshlength !important;
+        }
+        .mb#{Tshinfix}-n#{Tshsize},
+        .my#{Tshinfix}-n#{Tshsize} {
+          margin-bottom: -Tshlength !important;
+        }
+        .ml#{Tshinfix}-n#{Tshsize},
+        .mx#{Tshinfix}-n#{Tshsize} {
+          margin-left: -Tshlength !important;
+        }
+      }
+    }
+
+    // Some special margin utils
+    .m#{Tshinfix}-auto { margin: auto !important; }
+    .mt#{Tshinfix}-auto,
+    .my#{Tshinfix}-auto {
+      margin-top: auto !important;
+    }
+    .mr#{Tshinfix}-auto,
+    .mx#{Tshinfix}-auto {
+      margin-right: auto !important;
+    }
+    .mb#{Tshinfix}-auto,
+    .my#{Tshinfix}-auto {
+      margin-bottom: auto !important;
+    }
+    .ml#{Tshinfix}-auto,
+    .mx#{Tshinfix}-auto {
+      margin-left: auto !important;
+    }
+  }
+}

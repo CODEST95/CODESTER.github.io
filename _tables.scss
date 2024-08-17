@@ -1,0 +1,185 @@
+//
+// Basic Bootstrap table
+//
+
+.table {
+  width: 100%;
+  margin-bottom: Tshspacer;
+  color: Tshtable-color;
+  background-color: Tshtable-bg; // Reset for nesting within parents with `background-color`.
+
+  th,
+  td {
+    padding: Tshtable-cell-padding;
+    vertical-align: top;
+    border-top: Tshtable-border-width solid Tshtable-border-color;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: (2 * Tshtable-border-width) solid Tshtable-border-color;
+  }
+
+  tbody + tbody {
+    border-top: (2 * Tshtable-border-width) solid Tshtable-border-color;
+  }
+}
+
+
+//
+// Condensed table w/ half padding
+//
+
+.table-sm {
+  th,
+  td {
+    padding: Tshtable-cell-padding-sm;
+  }
+}
+
+
+// Border versions
+//
+// Add or remove borders all around the table and between all the columns.
+
+.table-bordered {
+  border: Tshtable-border-width solid Tshtable-border-color;
+
+  th,
+  td {
+    border: Tshtable-border-width solid Tshtable-border-color;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: 2 * Tshtable-border-width;
+    }
+  }
+}
+
+.table-borderless {
+  th,
+  td,
+  thead th,
+  tbody + tbody {
+    border: 0;
+  }
+}
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  tbody tr:nth-of-type(#{Tshtable-striped-order}) {
+    background-color: Tshtable-accent-bg;
+  }
+}
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  tbody tr {
+    @include hover {
+      color: Tshtable-hover-color;
+      background-color: Tshtable-hover-bg;
+    }
+  }
+}
+
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+@each Tshcolor, Tshvalue in Tshtheme-colors {
+  @include table-row-variant(Tshcolor, theme-color-level(Tshcolor, Tshtable-bg-level), theme-color-level(Tshcolor, Tshtable-border-level));
+}
+
+@include table-row-variant(active, Tshtable-active-bg);
+
+
+// Dark styles
+//
+// Same table markup, but inverted color scheme: dark background and light text.
+
+// stylelint-disable-next-line no-duplicate-selectors
+.table {
+  .thead-dark {
+    th {
+      color: Tshtable-dark-color;
+      background-color: Tshtable-dark-bg;
+      border-color: Tshtable-dark-border-color;
+    }
+  }
+
+  .thead-light {
+    th {
+      color: Tshtable-head-color;
+      background-color: Tshtable-head-bg;
+      border-color: Tshtable-border-color;
+    }
+  }
+}
+
+.table-dark {
+  color: Tshtable-dark-color;
+  background-color: Tshtable-dark-bg;
+
+  th,
+  td,
+  thead th {
+    border-color: Tshtable-dark-border-color;
+  }
+
+  &.table-bordered {
+    border: 0;
+  }
+
+  &.table-striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: Tshtable-dark-accent-bg;
+    }
+  }
+
+  &.table-hover {
+    tbody tr {
+      @include hover {
+        color: Tshtable-dark-hover-color;
+        background-color: Tshtable-dark-hover-bg;
+      }
+    }
+  }
+}
+
+
+// Responsive tables
+//
+// Generate series of `.table-responsive-*` classes for configuring the screen
+// size of where your table will overflow.
+
+.table-responsive {
+  @each Tshbreakpoint in map-keys(Tshgrid-breakpoints) {
+    Tshnext: breakpoint-next(Tshbreakpoint, Tshgrid-breakpoints);
+    Tshinfix: breakpoint-infix(Tshnext, Tshgrid-breakpoints);
+
+    &#{Tshinfix} {
+      @include media-breakpoint-down(Tshbreakpoint) {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+
+        // Prevent double border on horizontal scroll due to use of `display: block;`
+        > .table-bordered {
+          border: 0;
+        }
+      }
+    }
+  }
+}

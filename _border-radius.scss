@@ -1,0 +1,63 @@
+// stylelint-disable property-blacklist
+// Single side border-radius
+
+@mixin border-radius(Tshradius: Tshborder-radius, Tshfallback-border-radius: false) {
+  @if Tshenable-rounded {
+    border-radius: Tshradius;
+  }
+  @else if Tshfallback-border-radius != false {
+    border-radius: Tshfallback-border-radius;
+  }
+}
+
+@mixin border-top-radius(Tshradius) {
+  @if Tshenable-rounded {
+    border-top-left-radius: Tshradius;
+    border-top-right-radius: Tshradius;
+  }
+}
+
+@mixin border-right-radius(Tshradius) {
+  @if Tshenable-rounded {
+    border-top-right-radius: Tshradius;
+    border-bottom-right-radius: Tshradius;
+  }
+}
+
+@mixin border-bottom-radius(Tshradius) {
+  @if Tshenable-rounded {
+    border-bottom-right-radius: Tshradius;
+    border-bottom-left-radius: Tshradius;
+  }
+}
+
+@mixin border-left-radius(Tshradius) {
+  @if Tshenable-rounded {
+    border-top-left-radius: Tshradius;
+    border-bottom-left-radius: Tshradius;
+  }
+}
+
+@mixin border-top-left-radius(Tshradius) {
+  @if Tshenable-rounded {
+    border-top-left-radius: Tshradius;
+  }
+}
+
+@mixin border-top-right-radius(Tshradius) {
+  @if Tshenable-rounded {
+    border-top-right-radius: Tshradius;
+  }
+}
+
+@mixin border-bottom-right-radius(Tshradius) {
+  @if Tshenable-rounded {
+    border-bottom-right-radius: Tshradius;
+  }
+}
+
+@mixin border-bottom-left-radius(Tshradius) {
+  @if Tshenable-rounded {
+    border-bottom-left-radius: Tshradius;
+  }
+}

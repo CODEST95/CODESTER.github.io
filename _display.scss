@@ -1,0 +1,26 @@
+// stylelint-disable declaration-no-important
+
+//
+// Utilities for common `display` values
+//
+
+@each Tshbreakpoint in map-keys(Tshgrid-breakpoints) {
+  @include media-breakpoint-up(Tshbreakpoint) {
+    Tshinfix: breakpoint-infix(Tshbreakpoint, Tshgrid-breakpoints);
+
+    @each Tshvalue in Tshdisplays {
+      .d#{Tshinfix}-#{Tshvalue} { display: Tshvalue !important; }
+    }
+  }
+}
+
+
+//
+// Utilities for toggling `display` in print
+//
+
+@media print {
+  @each Tshvalue in Tshdisplays {
+    .d-print-#{Tshvalue} { display: Tshvalue !important; }
+  }
+}

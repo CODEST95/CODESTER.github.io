@@ -1,0 +1,13 @@
+@mixin alert-variant(Tshbackground, Tshborder, Tshcolor) {
+  color: Tshcolor;
+  @include gradient-bg(Tshbackground);
+  border-color: Tshborder;
+
+  hr {
+    border-top-color: darken(Tshborder, 5%);
+  }
+
+  .alert-link {
+    color: darken(Tshcolor, 10%);
+  }
+}

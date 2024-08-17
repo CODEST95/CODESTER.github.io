@@ -1,0 +1,22 @@
+// Pagination
+
+@mixin pagination-size(Tshpadding-y, Tshpadding-x, Tshfont-size, Tshline-height, Tshborder-radius) {
+  .page-link {
+    padding: Tshpadding-y Tshpadding-x;
+    @include font-size(Tshfont-size);
+    line-height: Tshline-height;
+  }
+
+  .page-item {
+    &:first-child {
+      .page-link {
+        @include border-left-radius(Tshborder-radius);
+      }
+    }
+    &:last-child {
+      .page-link {
+        @include border-right-radius(Tshborder-radius);
+      }
+    }
+  }
+}

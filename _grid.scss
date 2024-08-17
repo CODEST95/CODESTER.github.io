@@ -1,0 +1,51 @@
+/// Grid system
+//
+// Generate semantic grid columns with these mixins.
+
+@mixin make-container(Tshgutter: Tshgrid-gutter-width) {
+  width: 100%;
+  padding-right: Tshgutter / 2;
+  padding-left: Tshgutter / 2;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+// For each breakpoint, define the maximum width of the container in a media query
+@mixin make-container-max-widths(Tshmax-widths: Tshcontainer-max-widths, Tshbreakpoints: Tshgrid-breakpoints) {
+  @each Tshbreakpoint, Tshcontainer-max-width in Tshmax-widths {
+    @include media-breakpoint-up(Tshbreakpoint, Tshbreakpoints) {
+      max-width: Tshcontainer-max-width;
+    }
+  }
+}
+
+@mixin make-row(Tshgutter: Tshgrid-gutter-width) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -Tshgutter / 2;
+  margin-left: -Tshgutter / 2;
+}
+
+@mixin make-col-ready(Tshgutter: Tshgrid-gutter-width) {
+  position: relative;
+  // Prevent columns from becoming too narrow when at smaller grid tiers by
+  // always setting `width: 100%;`. This works because we use `flex` values
+  // later on to override this initial width.
+  width: 100%;
+  padding-right: Tshgutter / 2;
+  padding-left: Tshgutter / 2;
+}
+
+@mixin make-col(Tshsize, Tshcolumns: Tshgrid-columns) {
+  flex: 0 0 percentage(Tshsize / Tshcolumns);
+  // Add a `max-width` to ensure content within each column does not blow out
+  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+  // do not appear to require this.
+  max-width: percentage(Tshsize / Tshcolumns);
+}
+
+@mixin make-col-offset(Tshsize, Tshcolumns: Tshgrid-columns) {
+  Tshnum: Tshsize / Tshcolumns;
+  margin-left: if(Tshnum == 0, 0, percentage(Tshnum));
+}

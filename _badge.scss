@@ -1,0 +1,17 @@
+@mixin badge-variant(Tshbg) {
+  color: color-yiq(Tshbg);
+  background-color: Tshbg;
+
+  @at-root a#{&} {
+    @include hover-focus {
+      color: color-yiq(Tshbg);
+      background-color: darken(Tshbg, 10%);
+    }
+
+    &:focus,
+    &.focus {
+      outline: 0;
+      box-shadow: 0 0 0 Tshbadge-focus-width rgba(Tshbg, .5);
+    }
+  }
+}

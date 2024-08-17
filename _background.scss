@@ -1,0 +1,19 @@
+// stylelint-disable declaration-no-important
+
+@each Tshcolor, Tshvalue in Tshtheme-colors {
+  @include bg-variant(".bg-#{Tshcolor}", Tshvalue);
+}
+
+@if Tshenable-gradients {
+  @each Tshcolor, Tshvalue in Tshtheme-colors {
+    @include bg-gradient-variant(".bg-gradient-#{Tshcolor}", Tshvalue);
+  }
+}
+
+.bg-white {
+  background-color: Tshwhite !important;
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}

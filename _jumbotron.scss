@@ -1,0 +1,17 @@
+.jumbotron {
+  padding: Tshjumbotron-padding (Tshjumbotron-padding / 2);
+  margin-bottom: Tshjumbotron-padding;
+  color: Tshjumbotron-color;
+  background-color: Tshjumbotron-bg;
+  @include border-radius(Tshborder-radius-lg);
+
+  @include media-breakpoint-up(sm) {
+    padding: (Tshjumbotron-padding * 2) Tshjumbotron-padding;
+  }
+}
+
+.jumbotron-fluid {
+  padding-right: 0;
+  padding-left: 0;
+  @include border-radius(0);
+}

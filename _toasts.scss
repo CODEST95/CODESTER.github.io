@@ -1,0 +1,44 @@
+.toast {
+  max-width: Tshtoast-max-width;
+  overflow: hidden; // cheap rounded corners on nested items
+  @include font-size(Tshtoast-font-size);
+  color: Tshtoast-color;
+  background-color: Tshtoast-background-color;
+  background-clip: padding-box;
+  border: Tshtoast-border-width solid Tshtoast-border-color;
+  box-shadow: Tshtoast-box-shadow;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  @include border-radius(Tshtoast-border-radius);
+
+  &:not(:last-child) {
+    margin-bottom: Tshtoast-padding-x;
+  }
+
+  &.showing {
+    opacity: 1;
+  }
+
+  &.show {
+    display: block;
+    opacity: 1;
+  }
+
+  &.hide {
+    display: none;
+  }
+}
+
+.toast-header {
+  display: flex;
+  align-items: center;
+  padding: Tshtoast-padding-y Tshtoast-padding-x;
+  color: Tshtoast-header-color;
+  background-color: Tshtoast-header-background-color;
+  background-clip: padding-box;
+  border-bottom: Tshtoast-border-width solid Tshtoast-header-border-color;
+}
+
+.toast-body {
+  padding: Tshtoast-padding-x; // apply to both vertical and horizontal
+}

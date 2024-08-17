@@ -1,0 +1,1123 @@
+// Variables
+//
+// Variables should follow the `Tshcomponent-state-property-size` formula for
+// consistent naming. Ex: Tshnav-link-disabled-color and Tshmodal-content-box-shadow-xs.
+
+// Color system
+
+Tshwhite:    #fff !default;
+Tshgray-100: #f8f9fa !default;
+Tshgray-200: #e9ecef !default;
+Tshgray-300: #dee2e6 !default;
+Tshgray-400: #ced4da !default;
+Tshgray-500: #adb5bd !default;
+Tshgray-600: #6c757d !default;
+Tshgray-700: #495057 !default;
+Tshgray-800: #343a40 !default;
+Tshgray-900: #212529 !default;
+Tshblack:    #000 !default;
+
+Tshgrays: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+Tshgrays: map-merge(
+  (
+    "100": Tshgray-100,
+    "200": Tshgray-200,
+    "300": Tshgray-300,
+    "400": Tshgray-400,
+    "500": Tshgray-500,
+    "600": Tshgray-600,
+    "700": Tshgray-700,
+    "800": Tshgray-800,
+    "900": Tshgray-900
+  ),
+  Tshgrays
+);
+
+Tshblue:    #007bff !default;
+Tshindigo:  #6610f2 !default;
+Tshpurple:  #6f42c1 !default;
+Tshpink:    #e83e8c !default;
+Tshred:     #dc3545 !default;
+Tshorange:  #fd7e14 !default;
+Tshyellow:  #ffc107 !default;
+Tshgreen:   #28a745 !default;
+Tshteal:    #20c997 !default;
+Tshcyan:    #17a2b8 !default;
+
+Tshcolors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+Tshcolors: map-merge(
+  (
+    "blue":       Tshblue,
+    "indigo":     Tshindigo,
+    "purple":     Tshpurple,
+    "pink":       Tshpink,
+    "red":        Tshred,
+    "orange":     Tshorange,
+    "yellow":     Tshyellow,
+    "green":      Tshgreen,
+    "teal":       Tshteal,
+    "cyan":       Tshcyan,
+    "white":      Tshwhite,
+    "gray":       Tshgray-600,
+    "gray-dark":  Tshgray-800
+  ),
+  Tshcolors
+);
+
+Tshprimary:       Tshblue !default;
+Tshsecondary:     Tshgray-600 !default;
+Tshsuccess:       Tshgreen !default;
+Tshinfo:          Tshcyan !default;
+Tshwarning:       Tshyellow !default;
+Tshdanger:        Tshred !default;
+Tshlight:         Tshgray-100 !default;
+Tshdark:          Tshgray-800 !default;
+
+Tshtheme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+Tshtheme-colors: map-merge(
+  (
+    "primary":    Tshprimary,
+    "secondary":  Tshsecondary,
+    "success":    Tshsuccess,
+    "info":       Tshinfo,
+    "warning":    Tshwarning,
+    "danger":     Tshdanger,
+    "light":      Tshlight,
+    "dark":       Tshdark
+  ),
+  Tshtheme-colors
+);
+
+// Set a specific jump point for requesting color jumps
+Tshtheme-color-interval:      8% !default;
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+Tshyiq-contrasted-threshold:  150 !default;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+Tshyiq-text-dark:             Tshgray-900 !default;
+Tshyiq-text-light:            Tshwhite !default;
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+Tshenable-caret:                                true !default;
+Tshenable-rounded:                              true !default;
+Tshenable-shadows:                              false !default;
+Tshenable-gradients:                            false !default;
+Tshenable-transitions:                          true !default;
+Tshenable-prefers-reduced-motion-media-query:   true !default;
+Tshenable-hover-media-query:                    false !default; // Deprecated, no longer affects any compiled CSS
+Tshenable-grid-classes:                         true !default;
+Tshenable-pointer-cursor-for-buttons:           true !default;
+Tshenable-print-styles:                         true !default;
+Tshenable-responsive-font-sizes:                false !default;
+Tshenable-validation-icons:                     true !default;
+Tshenable-deprecation-messages:                 true !default;
+
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the Tshspacers map, should you need more variation.
+
+Tshspacer: 1rem !default;
+Tshspacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+Tshspacers: map-merge(
+  (
+    0: 0,
+    1: (Tshspacer * .25),
+    2: (Tshspacer * .5),
+    3: Tshspacer,
+    4: (Tshspacer * 1.5),
+    5: (Tshspacer * 3)
+  ),
+  Tshspacers
+);
+
+// This variable affects the `.h-*` and `.w-*` classes.
+Tshsizes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+Tshsizes: map-merge(
+  (
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%,
+    auto: auto
+  ),
+  Tshsizes
+);
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+Tshbody-bg:                   Tshwhite !default;
+Tshbody-color:                Tshgray-900 !default;
+
+
+// Links
+//
+// Style anchor elements.
+
+Tshlink-color:                              theme-color("primary") !default;
+Tshlink-decoration:                         none !default;
+Tshlink-hover-color:                        darken(Tshlink-color, 15%) !default;
+Tshlink-hover-decoration:                   underline !default;
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+Tshemphasized-link-hover-darken-percentage: 15% !default;
+
+// Paragraphs
+//
+// Style p element.
+
+Tshparagraph-margin-bottom:   1rem !default;
+
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+Tshgrid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+@include _assert-ascending(Tshgrid-breakpoints, "Tshgrid-breakpoints");
+@include _assert-starts-at-zero(Tshgrid-breakpoints, "Tshgrid-breakpoints");
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+Tshcontainer-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+
+@include _assert-ascending(Tshcontainer-max-widths, "Tshcontainer-max-widths");
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+Tshgrid-columns:                12 !default;
+Tshgrid-gutter-width:           30px !default;
+
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+Tshline-height-lg:              1.5 !default;
+Tshline-height-sm:              1.5 !default;
+
+Tshborder-width:                1px !default;
+Tshborder-color:                Tshgray-300 !default;
+
+Tshborder-radius:               .25rem !default;
+Tshborder-radius-lg:            .3rem !default;
+Tshborder-radius-sm:            .2rem !default;
+
+Tshrounded-pill:                50rem !default;
+
+Tshbox-shadow-sm:               0 .125rem .25rem rgba(Tshblack, .075) !default;
+Tshbox-shadow:                  0 .5rem 1rem rgba(Tshblack, .15) !default;
+Tshbox-shadow-lg:               0 1rem 3rem rgba(Tshblack, .175) !default;
+
+Tshcomponent-active-color:      Tshwhite !default;
+Tshcomponent-active-bg:         theme-color("primary") !default;
+
+Tshcaret-width:                 .3em !default;
+Tshcaret-vertical-align:        Tshcaret-width * .85 !default;
+Tshcaret-spacing:               Tshcaret-width * .85 !default;
+
+Tshtransition-base:             all .2s ease-in-out !default;
+Tshtransition-fade:             opacity .15s linear !default;
+Tshtransition-collapse:         height .35s ease !default;
+
+Tshembed-responsive-aspect-ratios: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+Tshembed-responsive-aspect-ratios: join(
+  (
+    (21 9),
+    (16 9),
+    (4 3),
+    (1 1),
+  ),
+  Tshembed-responsive-aspect-ratios
+);
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+Tshfont-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+Tshfont-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+Tshfont-family-base:            Tshfont-family-sans-serif !default;
+// stylelint-enable value-keyword-case
+
+Tshfont-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+Tshfont-size-lg:                Tshfont-size-base * 1.25 !default;
+Tshfont-size-sm:                Tshfont-size-base * .875 !default;
+
+Tshfont-weight-lighter:         lighter !default;
+Tshfont-weight-light:           300 !default;
+Tshfont-weight-normal:          400 !default;
+Tshfont-weight-bold:            700 !default;
+Tshfont-weight-bolder:          bolder !default;
+
+Tshfont-weight-base:            Tshfont-weight-normal !default;
+Tshline-height-base:            1.5 !default;
+
+Tshh1-font-size:                Tshfont-size-base * 2.5 !default;
+Tshh2-font-size:                Tshfont-size-base * 2 !default;
+Tshh3-font-size:                Tshfont-size-base * 1.75 !default;
+Tshh4-font-size:                Tshfont-size-base * 1.5 !default;
+Tshh5-font-size:                Tshfont-size-base * 1.25 !default;
+Tshh6-font-size:                Tshfont-size-base !default;
+
+Tshheadings-margin-bottom:      Tshspacer / 2 !default;
+Tshheadings-font-family:        null !default;
+Tshheadings-font-weight:        500 !default;
+Tshheadings-line-height:        1.2 !default;
+Tshheadings-color:              null !default;
+
+Tshdisplay1-size:               6rem !default;
+Tshdisplay2-size:               5.5rem !default;
+Tshdisplay3-size:               4.5rem !default;
+Tshdisplay4-size:               3.5rem !default;
+
+Tshdisplay1-weight:             300 !default;
+Tshdisplay2-weight:             300 !default;
+Tshdisplay3-weight:             300 !default;
+Tshdisplay4-weight:             300 !default;
+Tshdisplay-line-height:         Tshheadings-line-height !default;
+
+Tshlead-font-size:              Tshfont-size-base * 1.25 !default;
+Tshlead-font-weight:            300 !default;
+
+Tshsmall-font-size:             80% !default;
+
+Tshtext-muted:                  Tshgray-600 !default;
+
+Tshblockquote-small-color:      Tshgray-600 !default;
+Tshblockquote-small-font-size:  Tshsmall-font-size !default;
+Tshblockquote-font-size:        Tshfont-size-base * 1.25 !default;
+
+Tshhr-border-color:             rgba(Tshblack, .1) !default;
+Tshhr-border-width:             Tshborder-width !default;
+
+Tshmark-padding:                .2em !default;
+
+Tshdt-font-weight:              Tshfont-weight-bold !default;
+
+Tshkbd-box-shadow:              inset 0 -.1rem 0 rgba(Tshblack, .25) !default;
+Tshnested-kbd-font-weight:      Tshfont-weight-bold !default;
+
+Tshlist-inline-padding:         .5rem !default;
+
+Tshmark-bg:                     #fcf8e3 !default;
+
+Tshhr-margin-y:                 Tshspacer !default;
+
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+Tshtable-cell-padding:          .75rem !default;
+Tshtable-cell-padding-sm:       .3rem !default;
+
+Tshtable-color:                 Tshbody-color !default;
+Tshtable-bg:                    null !default;
+Tshtable-accent-bg:             rgba(Tshblack, .05) !default;
+Tshtable-hover-color:           Tshtable-color !default;
+Tshtable-hover-bg:              rgba(Tshblack, .075) !default;
+Tshtable-active-bg:             Tshtable-hover-bg !default;
+
+Tshtable-border-width:          Tshborder-width !default;
+Tshtable-border-color:          Tshborder-color !default;
+
+Tshtable-head-bg:               Tshgray-200 !default;
+Tshtable-head-color:            Tshgray-700 !default;
+
+Tshtable-dark-color:            Tshwhite !default;
+Tshtable-dark-bg:               Tshgray-800 !default;
+Tshtable-dark-accent-bg:        rgba(Tshwhite, .05) !default;
+Tshtable-dark-hover-color:      Tshtable-dark-color !default;
+Tshtable-dark-hover-bg:         rgba(Tshwhite, .075) !default;
+Tshtable-dark-border-color:     lighten(Tshtable-dark-bg, 7.5%) !default;
+Tshtable-dark-color:            Tshwhite !default;
+
+Tshtable-striped-order:         odd !default;
+
+Tshtable-caption-color:         Tshtext-muted !default;
+
+Tshtable-bg-level:              -9 !default;
+Tshtable-border-level:          -6 !default;
+
+
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `Tshinput-` and `Tshbtn-` specific variables.
+
+Tshinput-btn-padding-y:         .375rem !default;
+Tshinput-btn-padding-x:         .75rem !default;
+Tshinput-btn-font-family:       null !default;
+Tshinput-btn-font-size:         Tshfont-size-base !default;
+Tshinput-btn-line-height:       Tshline-height-base !default;
+
+Tshinput-btn-focus-width:       .2rem !default;
+Tshinput-btn-focus-color:       rgba(Tshcomponent-active-bg, .25) !default;
+Tshinput-btn-focus-box-shadow:  0 0 0 Tshinput-btn-focus-width Tshinput-btn-focus-color !default;
+
+Tshinput-btn-padding-y-sm:      .25rem !default;
+Tshinput-btn-padding-x-sm:      .5rem !default;
+Tshinput-btn-font-size-sm:      Tshfont-size-sm !default;
+Tshinput-btn-line-height-sm:    Tshline-height-sm !default;
+
+Tshinput-btn-padding-y-lg:      .5rem !default;
+Tshinput-btn-padding-x-lg:      1rem !default;
+Tshinput-btn-font-size-lg:      Tshfont-size-lg !default;
+Tshinput-btn-line-height-lg:    Tshline-height-lg !default;
+
+Tshinput-btn-border-width:      Tshborder-width !default;
+
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background, and border color.
+
+Tshbtn-padding-y:               Tshinput-btn-padding-y !default;
+Tshbtn-padding-x:               Tshinput-btn-padding-x !default;
+Tshbtn-font-family:             Tshinput-btn-font-family !default;
+Tshbtn-font-size:               Tshinput-btn-font-size !default;
+Tshbtn-line-height:             Tshinput-btn-line-height !default;
+
+Tshbtn-padding-y-sm:            Tshinput-btn-padding-y-sm !default;
+Tshbtn-padding-x-sm:            Tshinput-btn-padding-x-sm !default;
+Tshbtn-font-size-sm:            Tshinput-btn-font-size-sm !default;
+Tshbtn-line-height-sm:          Tshinput-btn-line-height-sm !default;
+
+Tshbtn-padding-y-lg:            Tshinput-btn-padding-y-lg !default;
+Tshbtn-padding-x-lg:            Tshinput-btn-padding-x-lg !default;
+Tshbtn-font-size-lg:            Tshinput-btn-font-size-lg !default;
+Tshbtn-line-height-lg:          Tshinput-btn-line-height-lg !default;
+
+Tshbtn-border-width:            Tshinput-btn-border-width !default;
+
+Tshbtn-font-weight:             Tshfont-weight-normal !default;
+Tshbtn-box-shadow:              inset 0 1px 0 rgba(Tshwhite, .15), 0 1px 1px rgba(Tshblack, .075) !default;
+Tshbtn-focus-width:             Tshinput-btn-focus-width !default;
+Tshbtn-focus-box-shadow:        Tshinput-btn-focus-box-shadow !default;
+Tshbtn-disabled-opacity:        .65 !default;
+Tshbtn-active-box-shadow:       inset 0 3px 5px rgba(Tshblack, .125) !default;
+
+Tshbtn-link-disabled-color:     Tshgray-600 !default;
+
+Tshbtn-block-spacing-y:         .5rem !default;
+
+// Allows for customizing button radius independently from global border radius
+Tshbtn-border-radius:           Tshborder-radius !default;
+Tshbtn-border-radius-lg:        Tshborder-radius-lg !default;
+Tshbtn-border-radius-sm:        Tshborder-radius-sm !default;
+
+Tshbtn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+
+// Forms
+
+Tshlabel-margin-bottom:                   .5rem !default;
+
+Tshinput-padding-y:                       Tshinput-btn-padding-y !default;
+Tshinput-padding-x:                       Tshinput-btn-padding-x !default;
+Tshinput-font-family:                     Tshinput-btn-font-family !default;
+Tshinput-font-size:                       Tshinput-btn-font-size !default;
+Tshinput-font-weight:                     Tshfont-weight-base !default;
+Tshinput-line-height:                     Tshinput-btn-line-height !default;
+
+Tshinput-padding-y-sm:                    Tshinput-btn-padding-y-sm !default;
+Tshinput-padding-x-sm:                    Tshinput-btn-padding-x-sm !default;
+Tshinput-font-size-sm:                    Tshinput-btn-font-size-sm !default;
+Tshinput-line-height-sm:                  Tshinput-btn-line-height-sm !default;
+
+Tshinput-padding-y-lg:                    Tshinput-btn-padding-y-lg !default;
+Tshinput-padding-x-lg:                    Tshinput-btn-padding-x-lg !default;
+Tshinput-font-size-lg:                    Tshinput-btn-font-size-lg !default;
+Tshinput-line-height-lg:                  Tshinput-btn-line-height-lg !default;
+
+Tshinput-bg:                              Tshwhite !default;
+Tshinput-disabled-bg:                     Tshgray-200 !default;
+
+Tshinput-color:                           Tshgray-700 !default;
+Tshinput-border-color:                    Tshgray-400 !default;
+Tshinput-border-width:                    Tshinput-btn-border-width !default;
+Tshinput-box-shadow:                      inset 0 1px 1px rgba(Tshblack, .075) !default;
+
+Tshinput-border-radius:                   Tshborder-radius !default;
+Tshinput-border-radius-lg:                Tshborder-radius-lg !default;
+Tshinput-border-radius-sm:                Tshborder-radius-sm !default;
+
+Tshinput-focus-bg:                        Tshinput-bg !default;
+Tshinput-focus-border-color:              lighten(Tshcomponent-active-bg, 25%) !default;
+Tshinput-focus-color:                     Tshinput-color !default;
+Tshinput-focus-width:                     Tshinput-btn-focus-width !default;
+Tshinput-focus-box-shadow:                Tshinput-btn-focus-box-shadow !default;
+
+Tshinput-placeholder-color:               Tshgray-600 !default;
+Tshinput-plaintext-color:                 Tshbody-color !default;
+
+Tshinput-height-border:                   Tshinput-border-width * 2 !default;
+
+Tshinput-height-inner:                    calc(#{Tshinput-line-height * 1em} + #{Tshinput-padding-y * 2}) !default;
+Tshinput-height-inner-half:               calc(#{Tshinput-line-height * .5em} + #{Tshinput-padding-y}) !default;
+Tshinput-height-inner-quarter:            calc(#{Tshinput-line-height * .25em} + #{Tshinput-padding-y / 2}) !default;
+
+Tshinput-height:                          calc(#{Tshinput-line-height * 1em} + #{Tshinput-padding-y * 2} + #{Tshinput-height-border}) !default;
+Tshinput-height-sm:                       calc(#{Tshinput-line-height-sm * 1em} + #{Tshinput-btn-padding-y-sm * 2} + #{Tshinput-height-border}) !default;
+Tshinput-height-lg:                       calc(#{Tshinput-line-height-lg * 1em} + #{Tshinput-btn-padding-y-lg * 2} + #{Tshinput-height-border}) !default;
+
+Tshinput-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+Tshform-text-margin-top:                  .25rem !default;
+
+Tshform-check-input-gutter:               1.25rem !default;
+Tshform-check-input-margin-y:             .3rem !default;
+Tshform-check-input-margin-x:             .25rem !default;
+
+Tshform-check-inline-margin-x:            .75rem !default;
+Tshform-check-inline-input-margin-x:      .3125rem !default;
+
+Tshform-grid-gutter-width:                10px !default;
+Tshform-group-margin-bottom:              1rem !default;
+
+Tshinput-group-addon-color:               Tshinput-color !default;
+Tshinput-group-addon-bg:                  Tshgray-200 !default;
+Tshinput-group-addon-border-color:        Tshinput-border-color !default;
+
+Tshcustom-forms-transition:               background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+Tshcustom-control-gutter:                 .5rem !default;
+Tshcustom-control-spacer-x:               1rem !default;
+
+Tshcustom-control-indicator-size:         1rem !default;
+Tshcustom-control-indicator-bg:           Tshinput-bg !default;
+
+Tshcustom-control-indicator-bg-size:      50% 50% !default;
+Tshcustom-control-indicator-box-shadow:   Tshinput-box-shadow !default;
+Tshcustom-control-indicator-border-color: Tshgray-500 !default;
+Tshcustom-control-indicator-border-width: Tshinput-border-width !default;
+
+Tshcustom-control-indicator-disabled-bg:          Tshinput-disabled-bg !default;
+Tshcustom-control-label-disabled-color:           Tshgray-600 !default;
+
+Tshcustom-control-indicator-checked-color:        Tshcomponent-active-color !default;
+Tshcustom-control-indicator-checked-bg:           Tshcomponent-active-bg !default;
+Tshcustom-control-indicator-checked-disabled-bg:  rgba(theme-color("primary"), .5) !default;
+Tshcustom-control-indicator-checked-box-shadow:   none !default;
+Tshcustom-control-indicator-checked-border-color: Tshcustom-control-indicator-checked-bg !default;
+
+Tshcustom-control-indicator-focus-box-shadow:     Tshinput-focus-box-shadow !default;
+Tshcustom-control-indicator-focus-border-color:   Tshinput-focus-border-color !default;
+
+Tshcustom-control-indicator-active-color:         Tshcomponent-active-color !default;
+Tshcustom-control-indicator-active-bg:            lighten(Tshcomponent-active-bg, 35%) !default;
+Tshcustom-control-indicator-active-box-shadow:    none !default;
+Tshcustom-control-indicator-active-border-color:  Tshcustom-control-indicator-active-bg !default;
+
+Tshcustom-checkbox-indicator-border-radius:       Tshborder-radius !default;
+Tshcustom-checkbox-indicator-icon-checked:        str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='#{Tshcustom-control-indicator-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+Tshcustom-checkbox-indicator-indeterminate-bg:           Tshcomponent-active-bg !default;
+Tshcustom-checkbox-indicator-indeterminate-color:        Tshcustom-control-indicator-checked-color !default;
+Tshcustom-checkbox-indicator-icon-indeterminate:         str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3e%3cpath stroke='#{Tshcustom-checkbox-indicator-indeterminate-color}' d='M0 2h4'/%3e%3c/svg%3e"), "#", "%23") !default;
+Tshcustom-checkbox-indicator-indeterminate-box-shadow:   none !default;
+Tshcustom-checkbox-indicator-indeterminate-border-color: Tshcustom-checkbox-indicator-indeterminate-bg !default;
+
+Tshcustom-radio-indicator-border-radius:          50% !default;
+Tshcustom-radio-indicator-icon-checked:           str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#{Tshcustom-control-indicator-checked-color}'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+Tshcustom-switch-width:                           Tshcustom-control-indicator-size * 1.75 !default;
+Tshcustom-switch-indicator-border-radius:         Tshcustom-control-indicator-size / 2 !default;
+Tshcustom-switch-indicator-size:                  calc(#{Tshcustom-control-indicator-size} - #{Tshcustom-control-indicator-border-width * 4}) !default;
+
+Tshcustom-select-padding-y:           Tshinput-padding-y !default;
+Tshcustom-select-padding-x:           Tshinput-padding-x !default;
+Tshcustom-select-font-family:         Tshinput-font-family !default;
+Tshcustom-select-font-size:           Tshinput-font-size !default;
+Tshcustom-select-height:              Tshinput-height !default;
+Tshcustom-select-indicator-padding:   1rem !default; // Extra padding to account for the presence of the background-image based indicator
+Tshcustom-select-font-weight:         Tshinput-font-weight !default;
+Tshcustom-select-line-height:         Tshinput-line-height !default;
+Tshcustom-select-color:               Tshinput-color !default;
+Tshcustom-select-disabled-color:      Tshgray-600 !default;
+Tshcustom-select-bg:                  Tshinput-bg !default;
+Tshcustom-select-disabled-bg:         Tshgray-200 !default;
+Tshcustom-select-bg-size:             8px 10px !default; // In pixels because image dimensions
+Tshcustom-select-indicator-color:     Tshgray-800 !default;
+Tshcustom-select-indicator:           str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='#{Tshcustom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e"), "#", "%23") !default;
+Tshcustom-select-background:          Tshcustom-select-indicator no-repeat right Tshcustom-select-padding-x center / Tshcustom-select-bg-size !default; // Used so we can have multiple background elements (e.g., arrow and feedback icon)
+
+Tshcustom-select-feedback-icon-padding-right: calc((1em + #{2 * Tshcustom-select-padding-y}) * 3 / 4 + #{Tshcustom-select-padding-x + Tshcustom-select-indicator-padding}) !default;
+Tshcustom-select-feedback-icon-position:      center right (Tshcustom-select-padding-x + Tshcustom-select-indicator-padding) !default;
+Tshcustom-select-feedback-icon-size:          Tshinput-height-inner-half Tshinput-height-inner-half !default;
+
+Tshcustom-select-border-width:        Tshinput-border-width !default;
+Tshcustom-select-border-color:        Tshinput-border-color !default;
+Tshcustom-select-border-radius:       Tshborder-radius !default;
+Tshcustom-select-box-shadow:          inset 0 1px 2px rgba(Tshblack, .075) !default;
+
+Tshcustom-select-focus-border-color:  Tshinput-focus-border-color !default;
+Tshcustom-select-focus-width:         Tshinput-focus-width !default;
+Tshcustom-select-focus-box-shadow:    0 0 0 Tshcustom-select-focus-width Tshinput-btn-focus-color !default;
+
+Tshcustom-select-padding-y-sm:        Tshinput-padding-y-sm !default;
+Tshcustom-select-padding-x-sm:        Tshinput-padding-x-sm !default;
+Tshcustom-select-font-size-sm:        Tshinput-font-size-sm !default;
+Tshcustom-select-height-sm:           Tshinput-height-sm !default;
+
+Tshcustom-select-padding-y-lg:        Tshinput-padding-y-lg !default;
+Tshcustom-select-padding-x-lg:        Tshinput-padding-x-lg !default;
+Tshcustom-select-font-size-lg:        Tshinput-font-size-lg !default;
+Tshcustom-select-height-lg:           Tshinput-height-lg !default;
+
+Tshcustom-range-track-width:          100% !default;
+Tshcustom-range-track-height:         .5rem !default;
+Tshcustom-range-track-cursor:         pointer !default;
+Tshcustom-range-track-bg:             Tshgray-300 !default;
+Tshcustom-range-track-border-radius:  1rem !default;
+Tshcustom-range-track-box-shadow:     inset 0 .25rem .25rem rgba(Tshblack, .1) !default;
+
+Tshcustom-range-thumb-width:                   1rem !default;
+Tshcustom-range-thumb-height:                  Tshcustom-range-thumb-width !default;
+Tshcustom-range-thumb-bg:                      Tshcomponent-active-bg !default;
+Tshcustom-range-thumb-border:                  0 !default;
+Tshcustom-range-thumb-border-radius:           1rem !default;
+Tshcustom-range-thumb-box-shadow:              0 .1rem .25rem rgba(Tshblack, .1) !default;
+Tshcustom-range-thumb-focus-box-shadow:        0 0 0 1px Tshbody-bg, Tshinput-focus-box-shadow !default;
+Tshcustom-range-thumb-focus-box-shadow-width:  Tshinput-focus-width !default; // For focus box shadow issue in IE/Edge
+Tshcustom-range-thumb-active-bg:               lighten(Tshcomponent-active-bg, 35%) !default;
+Tshcustom-range-thumb-disabled-bg:             Tshgray-500 !default;
+
+Tshcustom-file-height:                Tshinput-height !default;
+Tshcustom-file-height-inner:          Tshinput-height-inner !default;
+Tshcustom-file-focus-border-color:    Tshinput-focus-border-color !default;
+Tshcustom-file-focus-box-shadow:      Tshinput-focus-box-shadow !default;
+Tshcustom-file-disabled-bg:           Tshinput-disabled-bg !default;
+
+Tshcustom-file-padding-y:             Tshinput-padding-y !default;
+Tshcustom-file-padding-x:             Tshinput-padding-x !default;
+Tshcustom-file-line-height:           Tshinput-line-height !default;
+Tshcustom-file-font-family:           Tshinput-font-family !default;
+Tshcustom-file-font-weight:           Tshinput-font-weight !default;
+Tshcustom-file-color:                 Tshinput-color !default;
+Tshcustom-file-bg:                    Tshinput-bg !default;
+Tshcustom-file-border-width:          Tshinput-border-width !default;
+Tshcustom-file-border-color:          Tshinput-border-color !default;
+Tshcustom-file-border-radius:         Tshinput-border-radius !default;
+Tshcustom-file-box-shadow:            Tshinput-box-shadow !default;
+Tshcustom-file-button-color:          Tshcustom-file-color !default;
+Tshcustom-file-button-bg:             Tshinput-group-addon-bg !default;
+Tshcustom-file-text: (
+  en: "Browse"
+) !default;
+
+
+// Form validation
+
+Tshform-feedback-margin-top:          Tshform-text-margin-top !default;
+Tshform-feedback-font-size:           Tshsmall-font-size !default;
+Tshform-feedback-valid-color:         theme-color("success") !default;
+Tshform-feedback-invalid-color:       theme-color("danger") !default;
+
+Tshform-feedback-icon-valid-color:    Tshform-feedback-valid-color !default;
+Tshform-feedback-icon-valid:          str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='#{Tshform-feedback-icon-valid-color}' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e"), "#", "%23") !default;
+Tshform-feedback-icon-invalid-color:  Tshform-feedback-invalid-color !default;
+Tshform-feedback-icon-invalid:        str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{Tshform-feedback-icon-invalid-color}' viewBox='-2 -2 7 7'%3e%3cpath stroke='#{Tshform-feedback-icon-invalid-color}' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E"), "#", "%23") !default;
+
+Tshform-validation-states: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+Tshform-validation-states: map-merge(
+  (
+    "valid": (
+      "color": Tshform-feedback-valid-color,
+      "icon": Tshform-feedback-icon-valid
+    ),
+    "invalid": (
+      "color": Tshform-feedback-invalid-color,
+      "icon": Tshform-feedback-icon-invalid
+    ),
+  ),
+  Tshform-validation-states
+);
+
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
+Tshzindex-dropdown:                   1000 !default;
+Tshzindex-sticky:                     1020 !default;
+Tshzindex-fixed:                      1030 !default;
+Tshzindex-modal-backdrop:             1040 !default;
+Tshzindex-modal:                      1050 !default;
+Tshzindex-popover:                    1060 !default;
+Tshzindex-tooltip:                    1070 !default;
+
+
+// Navs
+
+Tshnav-link-padding-y:                .5rem !default;
+Tshnav-link-padding-x:                1rem !default;
+Tshnav-link-disabled-color:           Tshgray-600 !default;
+
+Tshnav-tabs-border-color:             Tshgray-300 !default;
+Tshnav-tabs-border-width:             Tshborder-width !default;
+Tshnav-tabs-border-radius:            Tshborder-radius !default;
+Tshnav-tabs-link-hover-border-color:  Tshgray-200 Tshgray-200 Tshnav-tabs-border-color !default;
+Tshnav-tabs-link-active-color:        Tshgray-700 !default;
+Tshnav-tabs-link-active-bg:           Tshbody-bg !default;
+Tshnav-tabs-link-active-border-color: Tshgray-300 Tshgray-300 Tshnav-tabs-link-active-bg !default;
+
+Tshnav-pills-border-radius:           Tshborder-radius !default;
+Tshnav-pills-link-active-color:       Tshcomponent-active-color !default;
+Tshnav-pills-link-active-bg:          Tshcomponent-active-bg !default;
+
+Tshnav-divider-color:                 Tshgray-200 !default;
+Tshnav-divider-margin-y:              Tshspacer / 2 !default;
+
+
+// Navbar
+
+Tshnavbar-padding-y:                  Tshspacer / 2 !default;
+Tshnavbar-padding-x:                  Tshspacer !default;
+
+Tshnavbar-nav-link-padding-x:         .5rem !default;
+
+Tshnavbar-brand-font-size:            Tshfont-size-lg !default;
+// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
+Tshnav-link-height:                   Tshfont-size-base * Tshline-height-base + Tshnav-link-padding-y * 2 !default;
+Tshnavbar-brand-height:               Tshnavbar-brand-font-size * Tshline-height-base !default;
+Tshnavbar-brand-padding-y:            (Tshnav-link-height - Tshnavbar-brand-height) / 2 !default;
+
+Tshnavbar-toggler-padding-y:          .25rem !default;
+Tshnavbar-toggler-padding-x:          .75rem !default;
+Tshnavbar-toggler-font-size:          Tshfont-size-lg !default;
+Tshnavbar-toggler-border-radius:      Tshbtn-border-radius !default;
+
+Tshnavbar-dark-color:                 rgba(Tshwhite, .5) !default;
+Tshnavbar-dark-hover-color:           rgba(Tshwhite, .75) !default;
+Tshnavbar-dark-active-color:          Tshwhite !default;
+Tshnavbar-dark-disabled-color:        rgba(Tshwhite, .25) !default;
+Tshnavbar-dark-toggler-icon-bg:       str-replace(url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='#{Tshnavbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"), "#", "%23") !default;
+Tshnavbar-dark-toggler-border-color:  rgba(Tshwhite, .1) !default;
+
+Tshnavbar-light-color:                rgba(Tshblack, .5) !default;
+Tshnavbar-light-hover-color:          rgba(Tshblack, .7) !default;
+Tshnavbar-light-active-color:         rgba(Tshblack, .9) !default;
+Tshnavbar-light-disabled-color:       rgba(Tshblack, .3) !default;
+Tshnavbar-light-toggler-icon-bg:      str-replace(url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='#{Tshnavbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"), "#", "%23") !default;
+Tshnavbar-light-toggler-border-color: rgba(Tshblack, .1) !default;
+
+Tshnavbar-light-brand-color:                Tshnavbar-light-active-color !default;
+Tshnavbar-light-brand-hover-color:          Tshnavbar-light-active-color !default;
+Tshnavbar-dark-brand-color:                 Tshnavbar-dark-active-color !default;
+Tshnavbar-dark-brand-hover-color:           Tshnavbar-dark-active-color !default;
+
+
+// Dropdowns
+//
+// Dropdown menu container and contents.
+
+Tshdropdown-min-width:                10rem !default;
+Tshdropdown-padding-y:                .5rem !default;
+Tshdropdown-spacer:                   .125rem !default;
+Tshdropdown-font-size:                Tshfont-size-base !default;
+Tshdropdown-color:                    Tshbody-color !default;
+Tshdropdown-bg:                       Tshwhite !default;
+Tshdropdown-border-color:             rgba(Tshblack, .15) !default;
+Tshdropdown-border-radius:            Tshborder-radius !default;
+Tshdropdown-border-width:             Tshborder-width !default;
+Tshdropdown-inner-border-radius:      calc(#{Tshdropdown-border-radius} - #{Tshdropdown-border-width}) !default;
+Tshdropdown-divider-bg:               Tshgray-200 !default;
+Tshdropdown-divider-margin-y:         Tshnav-divider-margin-y !default;
+Tshdropdown-box-shadow:               0 .5rem 1rem rgba(Tshblack, .175) !default;
+
+Tshdropdown-link-color:               Tshgray-900 !default;
+Tshdropdown-link-hover-color:         darken(Tshgray-900, 5%) !default;
+Tshdropdown-link-hover-bg:            Tshgray-100 !default;
+
+Tshdropdown-link-active-color:        Tshcomponent-active-color !default;
+Tshdropdown-link-active-bg:           Tshcomponent-active-bg !default;
+
+Tshdropdown-link-disabled-color:      Tshgray-600 !default;
+
+Tshdropdown-item-padding-y:           .25rem !default;
+Tshdropdown-item-padding-x:           1.5rem !default;
+
+Tshdropdown-header-color:             Tshgray-600 !default;
+
+
+// Pagination
+
+Tshpagination-padding-y:              .5rem !default;
+Tshpagination-padding-x:              .75rem !default;
+Tshpagination-padding-y-sm:           .25rem !default;
+Tshpagination-padding-x-sm:           .5rem !default;
+Tshpagination-padding-y-lg:           .75rem !default;
+Tshpagination-padding-x-lg:           1.5rem !default;
+Tshpagination-line-height:            1.25 !default;
+
+Tshpagination-color:                  Tshlink-color !default;
+Tshpagination-bg:                     Tshwhite !default;
+Tshpagination-border-width:           Tshborder-width !default;
+Tshpagination-border-color:           Tshgray-300 !default;
+
+Tshpagination-focus-box-shadow:       Tshinput-btn-focus-box-shadow !default;
+Tshpagination-focus-outline:          0 !default;
+
+Tshpagination-hover-color:            Tshlink-hover-color !default;
+Tshpagination-hover-bg:               Tshgray-200 !default;
+Tshpagination-hover-border-color:     Tshgray-300 !default;
+
+Tshpagination-active-color:           Tshcomponent-active-color !default;
+Tshpagination-active-bg:              Tshcomponent-active-bg !default;
+Tshpagination-active-border-color:    Tshpagination-active-bg !default;
+
+Tshpagination-disabled-color:         Tshgray-600 !default;
+Tshpagination-disabled-bg:            Tshwhite !default;
+Tshpagination-disabled-border-color:  Tshgray-300 !default;
+
+
+// Jumbotron
+
+Tshjumbotron-padding:                 2rem !default;
+Tshjumbotron-color:                   null !default;
+Tshjumbotron-bg:                      Tshgray-200 !default;
+
+
+// Cards
+
+Tshcard-spacer-y:                     .75rem !default;
+Tshcard-spacer-x:                     1.25rem !default;
+Tshcard-border-width:                 Tshborder-width !default;
+Tshcard-border-radius:                Tshborder-radius !default;
+Tshcard-border-color:                 rgba(Tshblack, .125) !default;
+Tshcard-inner-border-radius:          calc(#{Tshcard-border-radius} - #{Tshcard-border-width}) !default;
+Tshcard-cap-bg:                       rgba(Tshblack, .03) !default;
+Tshcard-cap-color:                    null !default;
+Tshcard-color:                        null !default;
+Tshcard-bg:                           Tshwhite !default;
+
+Tshcard-img-overlay-padding:          1.25rem !default;
+
+Tshcard-group-margin:                 Tshgrid-gutter-width / 2 !default;
+Tshcard-deck-margin:                  Tshcard-group-margin !default;
+
+Tshcard-columns-count:                3 !default;
+Tshcard-columns-gap:                  1.25rem !default;
+Tshcard-columns-margin:               Tshcard-spacer-y !default;
+
+
+// Tooltips
+
+Tshtooltip-font-size:                 Tshfont-size-sm !default;
+Tshtooltip-max-width:                 200px !default;
+Tshtooltip-color:                     Tshwhite !default;
+Tshtooltip-bg:                        Tshblack !default;
+Tshtooltip-border-radius:             Tshborder-radius !default;
+Tshtooltip-opacity:                   .9 !default;
+Tshtooltip-padding-y:                 .25rem !default;
+Tshtooltip-padding-x:                 .5rem !default;
+Tshtooltip-margin:                    0 !default;
+
+Tshtooltip-arrow-width:               .8rem !default;
+Tshtooltip-arrow-height:              .4rem !default;
+Tshtooltip-arrow-color:               Tshtooltip-bg !default;
+
+// Form tooltips must come after regular tooltips
+Tshform-feedback-tooltip-padding-y:     Tshtooltip-padding-y !default;
+Tshform-feedback-tooltip-padding-x:     Tshtooltip-padding-x !default;
+Tshform-feedback-tooltip-font-size:     Tshtooltip-font-size !default;
+Tshform-feedback-tooltip-line-height:   Tshline-height-base !default;
+Tshform-feedback-tooltip-opacity:       Tshtooltip-opacity !default;
+Tshform-feedback-tooltip-border-radius: Tshtooltip-border-radius !default;
+
+
+// Popovers
+
+Tshpopover-font-size:                 Tshfont-size-sm !default;
+Tshpopover-bg:                        Tshwhite !default;
+Tshpopover-max-width:                 276px !default;
+Tshpopover-border-width:              Tshborder-width !default;
+Tshpopover-border-color:              rgba(Tshblack, .2) !default;
+Tshpopover-border-radius:             Tshborder-radius-lg !default;
+Tshpopover-box-shadow:                0 .25rem .5rem rgba(Tshblack, .2) !default;
+
+Tshpopover-header-bg:                 darken(Tshpopover-bg, 3%) !default;
+Tshpopover-header-color:              Tshheadings-color !default;
+Tshpopover-header-padding-y:          .5rem !default;
+Tshpopover-header-padding-x:          .75rem !default;
+
+Tshpopover-body-color:                Tshbody-color !default;
+Tshpopover-body-padding-y:            Tshpopover-header-padding-y !default;
+Tshpopover-body-padding-x:            Tshpopover-header-padding-x !default;
+
+Tshpopover-arrow-width:               1rem !default;
+Tshpopover-arrow-height:              .5rem !default;
+Tshpopover-arrow-color:               Tshpopover-bg !default;
+
+Tshpopover-arrow-outer-color:         fade-in(Tshpopover-border-color, .05) !default;
+
+
+// Toasts
+
+Tshtoast-max-width:                   350px !default;
+Tshtoast-padding-x:                   .75rem !default;
+Tshtoast-padding-y:                   .25rem !default;
+Tshtoast-font-size:                   .875rem !default;
+Tshtoast-color:                       null !default;
+Tshtoast-background-color:            rgba(Tshwhite, .85) !default;
+Tshtoast-border-width:                1px !default;
+Tshtoast-border-color:                rgba(0, 0, 0, .1) !default;
+Tshtoast-border-radius:               .25rem !default;
+Tshtoast-box-shadow:                  0 .25rem .75rem rgba(Tshblack, .1) !default;
+
+Tshtoast-header-color:                Tshgray-600 !default;
+Tshtoast-header-background-color:     rgba(Tshwhite, .85) !default;
+Tshtoast-header-border-color:         rgba(0, 0, 0, .05) !default;
+
+
+// Badges
+
+Tshbadge-font-size:                   75% !default;
+Tshbadge-font-weight:                 Tshfont-weight-bold !default;
+Tshbadge-padding-y:                   .25em !default;
+Tshbadge-padding-x:                   .4em !default;
+Tshbadge-border-radius:               Tshborder-radius !default;
+
+Tshbadge-transition:                  Tshbtn-transition !default;
+Tshbadge-focus-width:                 Tshinput-btn-focus-width !default;
+
+Tshbadge-pill-padding-x:              .6em !default;
+// Use a higher than normal value to ensure completely rounded edges when
+// customizing padding or font-size on labels.
+Tshbadge-pill-border-radius:          10rem !default;
+
+
+// Modals
+
+// Padding applied to the modal body
+Tshmodal-inner-padding:               1rem !default;
+
+Tshmodal-dialog-margin:               .5rem !default;
+Tshmodal-dialog-margin-y-sm-up:       1.75rem !default;
+
+Tshmodal-title-line-height:           Tshline-height-base !default;
+
+Tshmodal-content-color:               null !default;
+Tshmodal-content-bg:                  Tshwhite !default;
+Tshmodal-content-border-color:        rgba(Tshblack, .2) !default;
+Tshmodal-content-border-width:        Tshborder-width !default;
+Tshmodal-content-border-radius:       Tshborder-radius-lg !default;
+Tshmodal-content-box-shadow-xs:       0 .25rem .5rem rgba(Tshblack, .5) !default;
+Tshmodal-content-box-shadow-sm-up:    0 .5rem 1rem rgba(Tshblack, .5) !default;
+
+Tshmodal-backdrop-bg:                 Tshblack !default;
+Tshmodal-backdrop-opacity:            .5 !default;
+Tshmodal-header-border-color:         Tshborder-color !default;
+Tshmodal-footer-border-color:         Tshmodal-header-border-color !default;
+Tshmodal-header-border-width:         Tshmodal-content-border-width !default;
+Tshmodal-footer-border-width:         Tshmodal-header-border-width !default;
+Tshmodal-header-padding-y:            1rem !default;
+Tshmodal-header-padding-x:            1rem !default;
+Tshmodal-header-padding:              Tshmodal-header-padding-y Tshmodal-header-padding-x !default; // Keep this for backwards compatibility
+
+Tshmodal-xl:                          1140px !default;
+Tshmodal-lg:                          800px !default;
+Tshmodal-md:                          500px !default;
+Tshmodal-sm:                          300px !default;
+
+Tshmodal-fade-transform:              translate(0, -50px) !default;
+Tshmodal-show-transform:              none !default;
+Tshmodal-transition:                  transform .3s ease-out !default;
+
+
+// Alerts
+//
+// Define alert colors, border radius, and padding.
+
+Tshalert-padding-y:                   .75rem !default;
+Tshalert-padding-x:                   1.25rem !default;
+Tshalert-margin-bottom:               1rem !default;
+Tshalert-border-radius:               Tshborder-radius !default;
+Tshalert-link-font-weight:            Tshfont-weight-bold !default;
+Tshalert-border-width:                Tshborder-width !default;
+
+Tshalert-bg-level:                    -10 !default;
+Tshalert-border-level:                -9 !default;
+Tshalert-color-level:                 6 !default;
+
+
+// Progress bars
+
+Tshprogress-height:                   1rem !default;
+Tshprogress-font-size:                Tshfont-size-base * .75 !default;
+Tshprogress-bg:                       Tshgray-200 !default;
+Tshprogress-border-radius:            Tshborder-radius !default;
+Tshprogress-box-shadow:               inset 0 .1rem .1rem rgba(Tshblack, .1) !default;
+Tshprogress-bar-color:                Tshwhite !default;
+Tshprogress-bar-bg:                   theme-color("primary") !default;
+Tshprogress-bar-animation-timing:     1s linear infinite !default;
+Tshprogress-bar-transition:           width .6s ease !default;
+
+
+// List group
+
+Tshlist-group-color:                  null !default;
+Tshlist-group-bg:                     Tshwhite !default;
+Tshlist-group-border-color:           rgba(Tshblack, .125) !default;
+Tshlist-group-border-width:           Tshborder-width !default;
+Tshlist-group-border-radius:          Tshborder-radius !default;
+
+Tshlist-group-item-padding-y:         .75rem !default;
+Tshlist-group-item-padding-x:         1.25rem !default;
+
+Tshlist-group-hover-bg:               Tshgray-100 !default;
+Tshlist-group-active-color:           Tshcomponent-active-color !default;
+Tshlist-group-active-bg:              Tshcomponent-active-bg !default;
+Tshlist-group-active-border-color:    Tshlist-group-active-bg !default;
+
+Tshlist-group-disabled-color:         Tshgray-600 !default;
+Tshlist-group-disabled-bg:            Tshlist-group-bg !default;
+
+Tshlist-group-action-color:           Tshgray-700 !default;
+Tshlist-group-action-hover-color:     Tshlist-group-action-color !default;
+
+Tshlist-group-action-active-color:    Tshbody-color !default;
+Tshlist-group-action-active-bg:       Tshgray-200 !default;
+
+
+// Image thumbnails
+
+Tshthumbnail-padding:                 .25rem !default;
+Tshthumbnail-bg:                      Tshbody-bg !default;
+Tshthumbnail-border-width:            Tshborder-width !default;
+Tshthumbnail-border-color:            Tshgray-300 !default;
+Tshthumbnail-border-radius:           Tshborder-radius !default;
+Tshthumbnail-box-shadow:              0 1px 2px rgba(Tshblack, .075) !default;
+
+
+// Figures
+
+Tshfigure-caption-font-size:          90% !default;
+Tshfigure-caption-color:              Tshgray-600 !default;
+
+
+// Breadcrumbs
+
+Tshbreadcrumb-padding-y:              .75rem !default;
+Tshbreadcrumb-padding-x:              1rem !default;
+Tshbreadcrumb-item-padding:           .5rem !default;
+
+Tshbreadcrumb-margin-bottom:          1rem !default;
+
+Tshbreadcrumb-bg:                     Tshgray-200 !default;
+Tshbreadcrumb-divider-color:          Tshgray-600 !default;
+Tshbreadcrumb-active-color:           Tshgray-600 !default;
+Tshbreadcrumb-divider:                quote("/") !default;
+
+Tshbreadcrumb-border-radius:          Tshborder-radius !default;
+
+
+// Carousel
+
+Tshcarousel-control-color:             Tshwhite !default;
+Tshcarousel-control-width:             15% !default;
+Tshcarousel-control-opacity:           .5 !default;
+Tshcarousel-control-hover-opacity:     .9 !default;
+Tshcarousel-control-transition:        opacity .15s ease !default;
+
+Tshcarousel-indicator-width:           30px !default;
+Tshcarousel-indicator-height:          3px !default;
+Tshcarousel-indicator-hit-area-height: 10px !default;
+Tshcarousel-indicator-spacer:          3px !default;
+Tshcarousel-indicator-active-bg:       Tshwhite !default;
+Tshcarousel-indicator-transition:      opacity .6s ease !default;
+
+Tshcarousel-caption-width:             70% !default;
+Tshcarousel-caption-color:             Tshwhite !default;
+
+Tshcarousel-control-icon-width:        20px !default;
+
+Tshcarousel-control-prev-icon-bg:      str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{Tshcarousel-control-color}' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e"), "#", "%23") !default;
+Tshcarousel-control-next-icon-bg:      str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{Tshcarousel-control-color}' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+Tshcarousel-transition-duration:       .6s !default;
+Tshcarousel-transition:                transform Tshcarousel-transition-duration ease-in-out !default; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
+
+
+// Spinners
+
+Tshspinner-width:         2rem !default;
+Tshspinner-height:        Tshspinner-width !default;
+Tshspinner-border-width:  .25em !default;
+
+Tshspinner-width-sm:        1rem !default;
+Tshspinner-height-sm:       Tshspinner-width-sm !default;
+Tshspinner-border-width-sm: .2em !default;
+
+
+// Close
+
+Tshclose-font-size:                   Tshfont-size-base * 1.5 !default;
+Tshclose-font-weight:                 Tshfont-weight-bold !default;
+Tshclose-color:                       Tshblack !default;
+Tshclose-text-shadow:                 0 1px 0 Tshwhite !default;
+
+
+// Code
+
+Tshcode-font-size:                    87.5% !default;
+Tshcode-color:                        Tshpink !default;
+
+Tshkbd-padding-y:                     .2rem !default;
+Tshkbd-padding-x:                     .4rem !default;
+Tshkbd-font-size:                     Tshcode-font-size !default;
+Tshkbd-color:                         Tshwhite !default;
+Tshkbd-bg:                            Tshgray-900 !default;
+
+Tshpre-color:                         Tshgray-900 !default;
+Tshpre-scrollable-max-height:         340px !default;
+
+
+// Utilities
+
+Tshdisplays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
+Tshoverflows: auto, hidden !default;
+Tshpositions: static, relative, absolute, fixed, sticky !default;
+
+
+// Printing
+
+Tshprint-page-size:                   a3 !default;
+Tshprint-body-min-width:              map-get(Tshgrid-breakpoints, "lg") !default;

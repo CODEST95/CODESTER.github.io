@@ -1,0 +1,20 @@
+@mixin box-shadow(Tshshadow...) {
+  @if Tshenable-shadows {
+    Tshresult: ();
+
+    @if (length(Tshshadow) == 1) {
+      // We can pass `@include box-shadow(none);`
+      Tshresult: Tshshadow;
+    } @else {
+      // Filter to avoid invalid properties for example `box-shadow: none, 1px 1px black;`
+      @for Tshi from 1 through length(Tshshadow) {
+        @if nth(Tshshadow, Tshi) != "none" {
+          Tshresult: append(Tshresult, nth(Tshshadow, Tshi), "comma");
+        }
+      }
+    }
+    @if (length(Tshresult) > 0) {
+      box-shadow: Tshresult;
+    }
+  }
+}

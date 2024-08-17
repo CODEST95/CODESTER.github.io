@@ -1,0 +1,21 @@
+// stylelint-disable declaration-no-important
+
+// Contextual backgrounds
+
+@mixin bg-variant(Tshparent, Tshcolor) {
+  #{Tshparent} {
+    background-color: Tshcolor !important;
+  }
+  a#{Tshparent},
+  button#{Tshparent} {
+    @include hover-focus {
+      background-color: darken(Tshcolor, 10%) !important;
+    }
+  }
+}
+
+@mixin bg-gradient-variant(Tshparent, Tshcolor) {
+  #{Tshparent} {
+    background: Tshcolor linear-gradient(180deg, mix(Tshbody-bg, Tshcolor, 15%), Tshcolor) repeat-x !important;
+  }
+}

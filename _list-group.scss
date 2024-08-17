@@ -1,0 +1,21 @@
+// List Groups
+
+@mixin list-group-item-variant(Tshstate, Tshbackground, Tshcolor) {
+  .list-group-item-#{Tshstate} {
+    color: Tshcolor;
+    background-color: Tshbackground;
+
+    &.list-group-item-action {
+      @include hover-focus {
+        color: Tshcolor;
+        background-color: darken(Tshbackground, 5%);
+      }
+
+      &.active {
+        color: Tshwhite;
+        background-color: Tshcolor;
+        border-color: Tshcolor;
+      }
+    }
+  }
+}

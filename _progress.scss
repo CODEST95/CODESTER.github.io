@@ -1,0 +1,43 @@
+// Disable animation if transitions are disabled
+@if Tshenable-transitions {
+  @keyframes progress-bar-stripes {
+    from { background-position: Tshprogress-height 0; }
+    to { background-position: 0 0; }
+  }
+}
+
+.progress {
+  display: flex;
+  height: Tshprogress-height;
+  overflow: hidden; // force rounded corners by cropping it
+  @include font-size(Tshprogress-font-size);
+  background-color: Tshprogress-bg;
+  @include border-radius(Tshprogress-border-radius);
+  @include box-shadow(Tshprogress-box-shadow);
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: Tshprogress-bar-color;
+  text-align: center;
+  white-space: nowrap;
+  background-color: Tshprogress-bar-bg;
+  @include transition(Tshprogress-bar-transition);
+}
+
+.progress-bar-striped {
+  @include gradient-striped();
+  background-size: Tshprogress-height Tshprogress-height;
+}
+
+@if Tshenable-transitions {
+  .progress-bar-animated {
+    animation: progress-bar-stripes Tshprogress-bar-animation-timing;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+}

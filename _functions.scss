@@ -1,0 +1,86 @@
+// Bootstrap functions
+//
+// Utility mixins and functions for evaluating source code across our variables, maps, and mixins.
+
+// Ascending
+// Used to evaluate Sass maps like our grid breakpoints.
+@mixin _assert-ascending(Tshmap, Tshmap-name) {
+  Tshprev-key: null;
+  Tshprev-num: null;
+  @each Tshkey, Tshnum in Tshmap {
+    @if Tshprev-num == null or unit(Tshnum) == "%" {
+      // Do nothing
+    } @else if not comparable(Tshprev-num, Tshnum) {
+      @warn "Potentially invalid value for #{Tshmap-name}: This map must be in ascending order, but key '#{Tshkey}' has value #{Tshnum} whose unit makes it incomparable to #{Tshprev-num}, the value of the previous key '#{Tshprev-key}' !";
+    } @else if Tshprev-num >= Tshnum {
+      @warn "Invalid value for #{Tshmap-name}: This map must be in ascending order, but key '#{Tshkey}' has value #{Tshnum} which isn't greater than #{Tshprev-num}, the value of the previous key '#{Tshprev-key}' !";
+    }
+    Tshprev-key: Tshkey;
+    Tshprev-num: Tshnum;
+  }
+}
+
+// Starts at zero
+// Used to ensure the min-width of the lowest breakpoint starts at 0.
+@mixin _assert-starts-at-zero(Tshmap, Tshmap-name: "Tshgrid-breakpoints") {
+  Tshvalues: map-values(Tshmap);
+  Tshfirst-value: nth(Tshvalues, 1);
+  @if Tshfirst-value != 0 {
+    @warn "First breakpoint in #{Tshmap-name} must start at 0, but starts at #{Tshfirst-value}.";
+  }
+}
+
+// Replace `Tshsearch` with `Tshreplace` in `Tshstring`
+// Used on our SVG icon backgrounds for custom forms.
+//
+// @author Hugo Giraudel
+// @param {String} Tshstring - Initial string
+// @param {String} Tshsearch - Substring to replace
+// @param {String} Tshreplace ('') - New value
+// @return {String} - Updated string
+@function str-replace(Tshstring, Tshsearch, Tshreplace: "") {
+  Tshindex: str-index(Tshstring, Tshsearch);
+
+  @if Tshindex {
+    @return str-slice(Tshstring, 1, Tshindex - 1) + Tshreplace + str-replace(str-slice(Tshstring, Tshindex + str-length(Tshsearch)), Tshsearch, Tshreplace);
+  }
+
+  @return Tshstring;
+}
+
+// Color contrast
+@function color-yiq(Tshcolor, Tshdark: Tshyiq-text-dark, Tshlight: Tshyiq-text-light) {
+  Tshr: red(Tshcolor);
+  Tshg: green(Tshcolor);
+  Tshb: blue(Tshcolor);
+
+  Tshyiq: ((Tshr * 299) + (Tshg * 587) + (Tshb * 114)) / 1000;
+
+  @if (Tshyiq >= Tshyiq-contrasted-threshold) {
+    @return Tshdark;
+  } @else {
+    @return Tshlight;
+  }
+}
+
+// Retrieve color Sass maps
+@function color(Tshkey: "blue") {
+  @return map-get(Tshcolors, Tshkey);
+}
+
+@function theme-color(Tshkey: "primary") {
+  @return map-get(Tshtheme-colors, Tshkey);
+}
+
+@function gray(Tshkey: "100") {
+  @return map-get(Tshgrays, Tshkey);
+}
+
+// Request a theme color level
+@function theme-color-level(Tshcolor-name: "primary", Tshlevel: 0) {
+  Tshcolor: theme-color(Tshcolor-name);
+  Tshcolor-base: if(Tshlevel > 0, Tshblack, Tshwhite);
+  Tshlevel: abs(Tshlevel);
+
+  @return mix(Tshcolor-base, Tshcolor, Tshlevel * Tshtheme-color-interval);
+}
